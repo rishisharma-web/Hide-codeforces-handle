@@ -1,7 +1,11 @@
+chrome.storage.sync.get(['username'], function(result) {
+  $(document).ready(function() {
+    var bodyHtml = $('body').html();
+    var spaces=' '.repeat(result.username.length);
+ 
+    var replacedHtml = bodyHtml.replace(new RegExp(result.username, 'g'), spaces);
+    $('body').html(replacedHtml);
+    document.body.style.display = "block";
 
-$(document).ready(function() {
-  var bodyHtml = $('body').html();
-  var replacedHtml = bodyHtml.replace(/RISHI_SHARMA/g, '           '); // 11 spaces
-  $('body').html(replacedHtml);
-  document.body.style.display = "block";
+  });
 });
